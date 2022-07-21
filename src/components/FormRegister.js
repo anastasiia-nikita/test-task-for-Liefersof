@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import axios from "axios";
 import { useForm } from "react-hook-form";
 import { setAddUserAction } from '../../src/redux/actions';
 import { NameInput } from "./NameInput"; 
