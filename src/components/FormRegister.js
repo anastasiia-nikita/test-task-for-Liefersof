@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Form } from '../styles/components';
 import { useForm } from "react-hook-form";
 import { setAddUserAction } from '../../src/redux/actions';
 import { NameInput } from "./NameInput"; 
@@ -33,7 +34,7 @@ export const FormRegister = () => {
   }, [isSubmitSuccessful, reset])
 
   return (
-  <form onSubmit={handleSubmit(onSumbit)}>
+  <Form onSubmit={handleSubmit(onSumbit)}>
     <NameInput register={register} error={errors.firstName} />
     <LastNameInput register={register} error={errors.lastName} />
     <PhoneInput register={register} error={errors.phone} />
@@ -43,6 +44,6 @@ export const FormRegister = () => {
     <AgreementCheckbox register={register} error={errors.agreement} />
 
     <button type="submit">Register</button>
-  </form>
+  </Form>
   );
 };

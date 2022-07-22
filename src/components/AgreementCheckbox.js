@@ -1,15 +1,21 @@
 import React from "react";
+import styled from 'styled-components';
+import { Label } from '../styles/components';
+
+const Input = styled.input`
+  position:relative; 
+`
 
 export const AgreementCheckbox = ({ register, error }) => (
-  <div>
-    <input
+  <>
+    <Input
       id="agreement"
       name="agreement"
       type="checkbox"
       {...register("agreement", { required: 'Agreement is required' })}
     />
-    <label htmlFor="agreement">I agree with terms and conditions</label>
+    <Label htmlFor="agreement">I agree with terms and conditions</Label>
 
     {error && <p>{error.message}</p>}
-  </div>
+  </>
 );

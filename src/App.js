@@ -3,23 +3,26 @@ import { useSelector } from "react-redux";
 import { getUsersSelector } from './redux/selectors';
 import { FormRegister } from "./components/FormRegister";
 import { UserRow } from "./components/UserRow";
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import GlobalStyle from './styles/global';
 
 const App = () => {
   const users = useSelector(getUsersSelector);
   console.log(users);
 
-  // const Container = styled.div`
-  //   // background-color: ${({ theme }) => theme.colors.bg};
-  //   // width: max-content;
-  //   // margin: 0 auto;
-  // `
+  const Container = styled.div`
+    background-color: ${({ theme }) => theme.colors.bg};
+    // width: max-content;
+    // margin: 0 auto;
+    border: 1px dashed black;
+    border-radius: 8px;
+    padding: 20px 50px;
+  `
 
   return (
     <>
     <GlobalStyle />
-    <div className="App">
+    <Container className="App">
       <h1>Sign up</h1>
         <FormRegister />
 
@@ -43,7 +46,7 @@ const App = () => {
         </tbody>
       </table>
     )}
-    </div>
+    </Container>
     </>
   );
 }

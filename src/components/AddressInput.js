@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Input, Label } from '../styles/components';
 import { useController } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuggestResultSelector } from '../redux/selectors';
 import { getAddress, setSuggestResultAction } from '../redux/actions';
 
-const Label = styled.label`
-  display: ${({ theme }) => theme.display.label};
-  margin-bottom: ${({ theme }) => theme.margin.label}px;
-  font-size: ${({ theme }) => theme.fontSizes.label}px;
-  font-weight: ${({ theme }) => theme.fontWeight.label};
-  // color: ${({ theme }) => theme.colors.label};
-`
-
-const Input = styled.input`
-  border: 1px solid #154360;
-  border-radius: 8px;
-  width: ${({ theme }) => theme.sizes.input.width}%;
-  height: ${({ theme }) => theme.sizes.input.height}px;
-  margin-bottom: ${({ theme }) => theme.margin.input}px;
-  font-size: ${({ theme }) => theme.fontSizes.input}px;
+const AdddressSuggest = styled.div`
+  border-bottom: 1px solid black;
+  width: 250px;
   padding: 0 ${({ theme }) => theme.padding.input}px;
+  font-size: 12px;
+  margin-bottom: 15px;
+  position:relative; 
+  z-index:1;
 `
 
 export const AddressInput = ({ error, control }) => {
@@ -29,10 +22,6 @@ export const AddressInput = ({ error, control }) => {
   let suggestions = useSelector(getSuggestResultSelector);
   const [selectedAdress, setSelectedAdress] = useState('');
 
-  console.log(field.value);
-  // console.log(suggestions);
-  // console.log(selectedAdress);
-
   useEffect(() => {
     if (selectedAdress !== field.value) {
       dispatch(getAddress(field.value))
@@ -40,7 +29,7 @@ export const AddressInput = ({ error, control }) => {
   }, [dispatch, selectedAdress, field.value]);
 
   return (
-    <div>
+    <>
       <Label htmlFor="address">Address</Label>
       <Input
         id="address"
@@ -50,15 +39,14 @@ export const AddressInput = ({ error, control }) => {
         onChange={(event) => {
           field.onChange(event.target.value)
         }}
-        // onChange={(event) => {
-        //   setValue(event.target.value)
-        // }}
         placeholder="Address"
         {...field}
       />
+
       {error && <p>{error.message}</p>}
+
       {suggestions && suggestions.map(item => (
-        <div 
+        <AdddressSuggest 
           key={item.id}
             onClick={() => {
             field.onChange(item.title);
@@ -67,8 +55,8 @@ export const AddressInput = ({ error, control }) => {
           }}
         >
           {item.title}
-        </div>
+        </AdddressSuggest>
       ))}
-  </div>
+  </>
   )
 };
