@@ -10,9 +10,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    display: grid;
-    place-content: center;
-    // text-align: center;
     margin: 0;
   }
 `

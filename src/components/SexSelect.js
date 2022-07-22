@@ -1,29 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Label, Select } from '../styles/components';
-
-// const Container = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   margin-bottom: 15px;
-// `
-
-// const Label = styled.label`
-//   margin-right: ${({ theme }) => theme.margin.label}px;
-//   font-size: ${({ theme }) => theme.fontSizes.label}px;
-//   font-weight: ${({ theme }) => theme.fontWeight.label};
-//   // color: ${({ theme }) => theme.colors.label};
-// `
-
-const Option = styled.option`
-  font-size: 14px;
-`
+import { Label, ErrorMessage } from '../styles/components';
 
 export const SexSelect = ({ register, error }) => (
   <>
-    <Label htmlFor="sex">Gender</Label>
-    <Select id="gender" 
+    <Label htmlFor="gender">Gender</Label>
+    <Select error={error} id="gender" 
       {...register("gender", { required: 'Gender is required' })}
     >
       <Option value="">Select Gender</Option>
@@ -31,6 +13,20 @@ export const SexSelect = ({ register, error }) => (
       <Option value="female">Female</Option>
     </Select>
 
-    {error && <p>{error.message}</p>}
+    {error && <ErrorMessage>{error.message}</ErrorMessage>}
   </>
 );
+
+const Select = styled.select`
+  width: 100%;
+  height: 30px;
+  border-radius: 8px;
+  border-color: ${({ error }) => error ? 'red' : '#154360'};
+  font-size: 16px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+`
+
+const Option = styled.option`
+  font-size: 14px;
+`

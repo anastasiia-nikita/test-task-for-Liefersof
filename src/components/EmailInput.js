@@ -1,10 +1,11 @@
 import React from "react";
-import { Input, Label } from '../styles/components';
+import { Input, Label, ErrorMessage } from '../styles/components';
 
 export const EmailInput = ({ register, error }) => (
-  <div>
+  <>
     <Label htmlFor="email">Email</Label>
     <Input
+      error={error}
       id="email"
       name="email"
       type="text"
@@ -18,6 +19,6 @@ export const EmailInput = ({ register, error }) => (
       })}
     />
 
-    {error && <p>{error.message}</p>}
-  </div>
+    {error && <ErrorMessage>{error.message}</ErrorMessage>}
+  </>
 );

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Form } from '../styles/components';
+import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { setAddUserAction } from '../../src/redux/actions';
-import { NameInput } from "./NameInput"; 
+import { NameInput } from "../components/NameInput/NameInput"; 
 import { LastNameInput } from "./LastNameInput"; 
 import { PhoneInput } from "./PhoneInput";
 import { EmailInput } from "./EmailInput";
@@ -35,15 +35,37 @@ export const FormRegister = () => {
 
   return (
   <Form onSubmit={handleSubmit(onSumbit)}>
-    <NameInput register={register} error={errors.firstName} />
-    <LastNameInput register={register} error={errors.lastName} />
-    <PhoneInput register={register} error={errors.phone} />
-    <EmailInput register={register} error={errors.email} />
-    <SexSelect register={register} error={errors.gender} />
-    <AddressInput error={errors.address} control={control} />
-    <AgreementCheckbox register={register} error={errors.agreement} />
+    <Title1>Sign up</Title1>
 
-    <button type="submit">Register</button>
+      <NameInput register={register} error={errors.firstName} />
+      <LastNameInput register={register} error={errors.lastName} />
+      <PhoneInput register={register} error={errors.phone} />
+      <EmailInput register={register} error={errors.email} />
+      <SexSelect register={register} error={errors.gender} />
+      <AddressInput control={control} error={errors.address} />
+      <AgreementCheckbox register={register} error={errors.agreement} />
+
+      <Button type="submit">Register</Button>
   </Form>
   );
 };
+
+  const Form = styled.form`
+    margin: 0px;
+  `
+  const Button = styled.button`
+    display: block;
+    background-color: #85C1E9;
+    border: none;
+    padding: 20px 20px;
+    line-height: 0px;
+    height: 30px;
+    border-radius: 8px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: bold;
+  `
+
+  const Title1 = styled.h1`
+    text-align: center;
+  `

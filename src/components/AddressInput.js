@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
-import { Input, Label } from '../styles/components';
+import { Input, Label, ErrorMessage } from '../styles/components';
 import { useController } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuggestResultSelector } from '../redux/selectors';
 import { getAddress, setSuggestResultAction } from '../redux/actions';
-
-const AdddressSuggest = styled.div`
-  border-bottom: 1px solid black;
-  width: 250px;
-  padding: 0 ${({ theme }) => theme.padding.input}px;
-  font-size: 12px;
-  margin-bottom: 15px;
-  position:relative; 
-  z-index:1;
-`
 
 export const AddressInput = ({ error, control }) => {
   const { field } = useController({ name: 'address', rules: { required: 'Address is required' }, control, defaultValue: ''});
@@ -32,6 +22,7 @@ export const AddressInput = ({ error, control }) => {
     <>
       <Label htmlFor="address">Address</Label>
       <Input
+        error={error}
         id="address"
         name="address"
         type="text"
@@ -43,7 +34,7 @@ export const AddressInput = ({ error, control }) => {
         {...field}
       />
 
-      {error && <p>{error.message}</p>}
+      {error && <ErrorMessage>{error.message}</ErrorMessage>}
 
       {suggestions && suggestions.map(item => (
         <AdddressSuggest 
@@ -60,3 +51,10 @@ export const AddressInput = ({ error, control }) => {
   </>
   )
 };
+
+const AdddressSuggest = styled.div`
+  border-bottom: 1px solid black;
+  padding: 0 15px;
+  font-size: 12px;
+  margin-bottom: 15px;
+`

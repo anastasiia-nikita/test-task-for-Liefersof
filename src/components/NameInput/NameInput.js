@@ -1,10 +1,11 @@
 import React from "react";
-import { Input, Label } from '../styles/components';
+import { Input, Label, ErrorMessage } from '../../styles/components';
 
 export const NameInput = ({ register, error }) => (
   <>
     <Label htmlFor="firstName">First name</Label>
     <Input
+      error={error}
       id="firstName"
       name="firstName"
       type="text"
@@ -12,6 +13,6 @@ export const NameInput = ({ register, error }) => (
       {...register("firstName", { required: 'First name is required' })}
     />
 
-    {error && <p>{error.message}</p>}
+    {error && <ErrorMessage>{error.message}</ErrorMessage>}
   </>
 );

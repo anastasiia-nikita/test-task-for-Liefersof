@@ -1,20 +1,13 @@
 // import { combineReducers } from 'redux';
-import { SET_QUERY, SET_SUGGEST_RESULT, SET_USERS, ADD_USER } from './actions';
+import { SET_SUGGEST_RESULT, SET_USERS, ADD_USER } from './actions';
 
 const initialState = {
-  query: '',
   suggestResult: [],
   users: [],
 };
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_QUERY:
-      return {
-        ...state,
-        query: action.payload,
-      }
-
     case SET_USERS:
       return {
         ...state,
