@@ -1,3 +1,7 @@
+# Tesk task for Liefersof
+
+➡️ [DEMO LINK](https://anastasiia-nikita.github.io/test-task-for-Liefersof/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

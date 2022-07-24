@@ -9,13 +9,13 @@ export const setUsersAction = (payload) => ({
   payload,
 });
 
-export const setSuggestResultAction = (payload) => ({
-  type: SET_SUGGEST_RESULT,
+export const setAddUserAction = (payload) => ({
+  type: ADD_USER,
   payload,
 });
 
-export const setAddUserAction = (payload) => ({
-  type: ADD_USER,
+export const setSuggestResultAction = (payload) => ({
+  type: SET_SUGGEST_RESULT,
   payload,
 });
 

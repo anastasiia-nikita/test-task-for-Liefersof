@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Label, ErrorMessage } from '../../styles/components';
+import { Input, Label, ErrorMessage } from '../styles/components';
 
 export const NameInput = ({ register, error }) => (
   <>

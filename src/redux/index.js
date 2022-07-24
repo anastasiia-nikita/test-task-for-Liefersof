@@ -1,4 +1,3 @@
-// import { combineReducers } from 'redux';
 import { SET_SUGGEST_RESULT, SET_USERS, ADD_USER } from './actions';
 
 const initialState = {
@@ -29,6 +28,4 @@ export const rootReducer = (state = initialState, action) => {
     default:
       return state;
   }
-} 
-
-// export const rootReducer = combineReducers({ reducer })
+}

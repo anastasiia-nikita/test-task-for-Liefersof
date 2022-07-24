@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { setAddUserAction } from '../../src/redux/actions';
-import { NameInput } from "../components/NameInput/NameInput"; 
+import { NameInput } from "./NameInput"; 
 import { LastNameInput } from "./LastNameInput"; 
 import { PhoneInput } from "./PhoneInput";
 import { EmailInput } from "./EmailInput";
@@ -20,7 +20,6 @@ export const FormRegister = () => {
     phone: '',
     email: '',
     gender: '',
-    address: '',
   }});
 
   const onSumbit = (data) => {
